@@ -15,11 +15,11 @@ import { Tableusers } from './tableUsers';
 
 
     @Table({
-    tableName:'Tableusers',
+    tableName:'TableRols',
     timestamps:true
 })
 
-export class TableRol extends Model {
+export class TableRols extends Model {
     @PrimaryKey
     @AutoIncrement
     @Column({
@@ -47,7 +47,7 @@ export class TableRol extends Model {
       })
       name!: string;
       @HasMany(()=>Tableusers)
-      Rol!:Tableusers[]
+      Tableusers!:Tableusers[]
 
     
   }

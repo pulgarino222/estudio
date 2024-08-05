@@ -6,23 +6,25 @@ import{Table,
     AutoIncrement,
     ForeignKey,
     BelongsTo,
+    BelongsToMany,
     HasMany,
     Unique,
     AllowNull,
     Default,
-    HasOne,
     }from 'sequelize-typescript'
-import { TableRols } from './tableRoles';
 import { cart } from './cart';
-import { Orders } from './order';
+import { productCar } from './productCar';
+
+
+
 
 
     @Table({
-    tableName:'Tableusers',
+    tableName:'TableProducts',
     timestamps:true
 })
 
-export class Tableusers extends Model {
+export class TableProducts extends Model {
     @PrimaryKey
     @AutoIncrement
     @Column({
@@ -35,28 +37,33 @@ export class Tableusers extends Model {
         allowNull: false,
         unique:true
       })
-      email!: string;
+      name!: string;
 
       @Column({
-        type: DataType.STRING(200),
+        type: DataType.FLOAT(10,2),
         allowNull: false,
       })
-      password!: string;
+      price!:number;
 
-      @ForeignKey(() => TableRols)
+
     @Column({
-    type: DataType.INTEGER,
-    allowNull: false,
-  })
-  rolId!: number;
+        type: DataType.TEXT,
+        allowNull: false,
+      })
+      description!:string
 
-    @BelongsTo(() => TableRols)
-  tableRol!: TableRols
+      @Column({
+        type: DataType.INTEGER,
+        allowNull: false,
+      })
+      stock!:number
 
-    @HasOne(()=>cart)
-      Tableusers!:cart[]
+      @BelongsToMany(() => cart, () => productCar)
+  cart!: cart[];
 
-      @HasMany(()=>Orders)
-      orders!:Orders[]
+
+      
+
+     
     
   }
