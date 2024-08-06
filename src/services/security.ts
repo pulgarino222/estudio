@@ -25,7 +25,7 @@ export class Security {
         //     subject: 'user-authentication'
         //   };
             const token= jwt.sign({data},`${process.env.SECRET_KEY_ADMIN}`||"generica",{
-                expiresIn:60*60*2
+                expiresIn:60*60*24
             })
             return token
     }

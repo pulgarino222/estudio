@@ -134,3 +134,5 @@ despues de crear la conexion a la base de datos probamos que realmente si se est
     startserver()
     
     
+http://localhost:3000/login/users    esta es la ruta para usuarios
+http://localhost:3000/login  esta es la ruta para loguearse y poder tener los permisos a travez de un post contraseñas "pecera2923"
