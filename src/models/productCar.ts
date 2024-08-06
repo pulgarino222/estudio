@@ -16,7 +16,7 @@ import{Table,
   import { Orders } from './order';
   
   @Table({
-    tableName: 'post_tags',
+    tableName: 'productCar',
     timestamps: false,
   })
   export class productCar extends Model {

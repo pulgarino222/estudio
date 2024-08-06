@@ -41,8 +41,4 @@ export class cart extends Model {
       @BelongsTo(() => Tableusers)
       tableuser!: Tableusers
 
-      
-
-     
-
   }

@@ -8,7 +8,7 @@ const server = express()
 server.use(express.json())
 env.config()
 // server.use(corsConfig)
-server.use('/appi',routes)
+server.use('/',routes)
 
 const PORT = process.env.PORT || 3001
 

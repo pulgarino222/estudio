@@ -1,46 +1,38 @@
-import { Tableusers } from "../models/tableUsers";
+import { TableProducts } from '../models/tableProduct';
 import { injectable } from 'tsyringe';
 
 
 
 @injectable()
-export class userRepository{
+export class ProductRepository{
     async finAll(){
-        return await Tableusers.findAll()
+        return await TableProducts.findAll()
     }
 
-    async findByEmail(email:string){
-        return await Tableusers.findOne({
-            where:{
-                email:email
-            }
-        })
-        
-    }
 
 
     async findById(id:number){
         try {
-            const wanted= await Tableusers.findByPk(id)
+            const wanted= await TableProducts.findByPk(id)
             return wanted
         } catch (error:any) {
             throw new Error(error.message)
         }
         
     }
-    async createdNewUser(user: Partial<Tableusers>){
+    async createdNewUser(user: Partial<TableProducts>){
         let tableCreated:any;
         try{
-            tableCreated=await Tableusers.create(user)
+            tableCreated=await TableProducts.create(user)
             return tableCreated
         }catch(error:any){
             console.log('ah ocurrido un error',error)
         }
     }
 
-     async updateUserById(userupdated:Partial<Tableusers>,id:number){
+     async updateUserById(productupdated:Partial<TableProducts>,id:number){
         try {
-            const update= await Tableusers.update(userupdated,{
+            const update= await TableProducts.update(productupdated,{
                 where:{
                     id:id
                 }
@@ -55,7 +47,7 @@ export class userRepository{
 
     async deleteUserById(id:number){
         try {
-            await Tableusers.destroy({
+            await TableProducts.destroy({
                 where:{
                     id:id
                 }

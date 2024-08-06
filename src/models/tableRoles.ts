@@ -16,7 +16,7 @@ import { Tableusers } from './tableUsers';
 
     @Table({
     tableName:'TableRols',
-    timestamps:true
+    timestamps:false
 })
 
 export class TableRols extends Model {
@@ -27,25 +27,21 @@ export class TableRols extends Model {
     })
     id!: number;
 
-    @Column({
-        type: DataType.STRING(200),// se define con varchar de 200 tal como lo dice en el moodle
-        allowNull: false,
-        unique:true
-      })
-      email!: string;
-
-      @Column({
-        type: DataType.STRING(200),
-        allowNull: false,
-      })
-      password!: string;
-
+    
 
     @Column({
         type: DataType.STRING,
         allowNull: false,
       })
       name!: string;
+
+      @Column({
+        type: DataType.STRING,
+        allowNull: false,
+      })
+      description!: string;
+
+
       @HasMany(()=>Tableusers)
       Tableusers!:Tableusers[]
 
