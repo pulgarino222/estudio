@@ -1,38 +1,38 @@
-import { TableProducts } from '../models/tableProduct';
+import { Orders } from '../models/order';
 import { injectable } from 'tsyringe';
 
 
 
 @injectable()
-export class ProductRepository{
+export class OrderRepository{
     async finAll(){
-        return await TableProducts.findAll()
+        return await Orders.findAll()
     }
 
 
 
     async findById(id:number){
         try {
-            const wanted= await TableProducts.findByPk(id)
+            const wanted= await Orders.findByPk(id)
             return wanted
         } catch (error:any) {
             throw new Error(error.message)
         }
         
     }
-    async createdNewProduct(user: Partial<TableProducts>){
+    async createdNewOrder(user: Partial<Orders>){
         let tableCreated:any;
         try{
-            tableCreated=await TableProducts.create(user)
+            tableCreated=await Orders.create(user)
             return tableCreated
         }catch(error:any){
             console.log('ah ocurrido un error',error)
         }
     }
 
-     async updateProductById(productupdated:Partial<TableProducts>,id:number){
+     async updateOrderById(orderUpdated:Partial<Orders>,id:number){
         try {
-            const update= await TableProducts.update(productupdated,{
+            const update= await Orders.update(orderUpdated,{
                 where:{
                     id:id
                 }
@@ -45,9 +45,9 @@ export class ProductRepository{
 
     }
 
-    async deleteUserById(id:number){
+    async deleteOrderById(id:number){
         try {
-            await TableProducts.destroy({
+            await Orders.destroy({
                 where:{
                     id:id
                 }

@@ -2,6 +2,7 @@ import express, { Router } from 'express'
 import env from 'dotenv'
 import sequelize from "./config/db";
 import {routes} from './routes/router'
+import errorHandler from './middleware/errorHandler';
 // import corsConfig from './middleware/cors';
 
 const server = express()
@@ -9,6 +10,7 @@ server.use(express.json())
 env.config()
 // server.use(corsConfig)
 server.use('/',routes)
+server.use(errorHandler)
 
 const PORT = process.env.PORT || 3001
 
