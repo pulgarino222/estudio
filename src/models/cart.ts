@@ -13,10 +13,6 @@ import{Table,
     }from 'sequelize-typescript'
 import { Tableusers } from './tableUsers';
 
-// import { ProductsCards } from './productCar';
-
-
-
     @Table({
     tableName:'cart',
     timestamps:true

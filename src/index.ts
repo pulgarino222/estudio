@@ -3,7 +3,7 @@ import env from 'dotenv'
 import sequelize from "./config/db";
 import {routes} from './routes/router'
 import errorHandler from './middleware/errorHandler';
-// import corsConfig from './middleware/cors';
+import corsConfig from './middleware/cors';
 
 const server = express()
 server.use(express.json())

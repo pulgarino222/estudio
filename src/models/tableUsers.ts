@@ -32,6 +32,7 @@ export class Tableusers extends Model {
   @Column({
     type: DataType.STRING(200), // se define con varchar de 200 tal como lo dice en el moodle
     allowNull: false,
+    unique:true
   })
   email!: string;
 

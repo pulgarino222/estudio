@@ -17,6 +17,15 @@ export class userRepository{
         })
         
     }
+    async findByEmailRol(email:string){
+        const data= await Tableusers.findOne({
+            where:{
+                email:email
+            }
+        })
+        return data?.rolId
+        
+    }
 
 
     async findById(id:number){

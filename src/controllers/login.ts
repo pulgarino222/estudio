@@ -2,14 +2,17 @@
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 import { Security } from "../services/security";
+import { UserController } from "./usersControllers";
 
 
 const SecurityServiceForUse=container.resolve(Security)
+
 
 export class ControllAccess{
 
     static async access(req:Request,resp:Response){
       try {
+
         const email=req.body.email
         const password=req.body.password
           const canAccess= await SecurityServiceForUse.authorize(email,password)

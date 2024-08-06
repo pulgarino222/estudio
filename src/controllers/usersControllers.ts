@@ -12,6 +12,7 @@ export class UserController{
         res.json(
             users
         )
+        return users
     }
 
     static async getUserById(req:Request,resp:Response){

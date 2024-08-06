@@ -36,7 +36,7 @@ export class UserService{
             return null;
           }
     
-          // Buscar el usuario actualizado para obtener los datos actualizados
+      
           const updatedUser = await this.userRepository.findById(id);
           if (updatedUser) {
             console.log('Datos actualizados:', updatedUser.get({ plain: true }));

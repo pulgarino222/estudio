@@ -6,7 +6,7 @@ import { TableProducts } from '../models/tableProduct';
 import { cart } from '../models/cart';
 import { Orders } from '../models/order';
 import { productCar } from '../models/productCar';
-// import { ProductsCards } from '../models/productCar';
+
 
 env.config()
 

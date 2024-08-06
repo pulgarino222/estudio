@@ -20,7 +20,7 @@ export class ProductsCarsRepository{
         }
         
     }
-    async createdNewOrder(user: Partial<Orders>){
+    async createdNewProductCars(user: Partial<Orders>){
         let tableCreated:any;
         try{
             tableCreated=await Orders.create(user)
@@ -30,7 +30,7 @@ export class ProductsCarsRepository{
         }
     }
 
-     async updateOrderById(orderUpdated:Partial<Orders>,id:number){
+     async updateProductCarsById(orderUpdated:Partial<Orders>,id:number){
         try {
             const update= await Orders.update(orderUpdated,{
                 where:{
@@ -45,7 +45,7 @@ export class ProductsCarsRepository{
 
     }
 
-    async deleteOrderById(id:number){
+    async deleteProductsCarsById(id:number){
         try {
             await Orders.destroy({
                 where:{
